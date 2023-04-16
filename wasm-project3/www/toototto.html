@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="./bootstrap.js"></script>
+    <title>TOOT-OTTO</title>
+
+</head>
+
+
+<body>
+  <div id="menu" class="menu">
+    <div id="opponent_select" class="menu_modal">
+        <div id="notSignedIn">
+            <h2 style="text-align: center;">You are not signed in.</h2>
+            <h3 style="text-align: center;">Please sign in to continue:</h3>
+            <button class="center_button" id="home_nav">Go To Sign In</button>
+        </div>
+        <div id="signedIn" style="display: none;">
+            <h2 style="text-align: center;">Welcome to Toot-Otto, <span id="userDisplay"></span>!</h2>
+            <h3 style="text-align: center;">Please select an opponent:</h3>
+            <table>
+                <tr>
+                <td><button class="selection_button" id="2_players">2 Players</button></td> 
+                <td><button class="selection_button" id="easybot">Easy Bot</button></td>
+                </tr>
+                <tr>
+                    <td><button class="selection_button" width="20%" id="medbot">Medium Bot</button></td>
+                    <td><button class="selection_button" width="20%" id="hardbot">Hard Bot</button></td>
+                </tr>
+            </table>
+            <br>
+            <button class="center_button" id="to_home">Back to Home</button>
+        </div>
+      </div>
+  </div>
+
+    <nav class="w3-bar w3-dark-grey">
+        <a class="w3-bar-item w3-button" id="home_nav">Home</a>
+        <a class="w3-bar-item w3-button" id="connect4_nav">Connect4</a>
+        <a class="w3-bar-item w3-button w3-green" id="toot-otto_nav">Toot-Otto</a>
+        <a class="w3-bar-item w3-button" id="leaderboards_nav">Leaderboards</a>
+    </nav>
+
+    <table style="border:none;">
+        <td style="vertical-align: text-top;" width="30%" class="center">
+          <header class="center">
+            <h1 width="100%">Toot-Otto Game</h1>
+            <p style="text-align:center; font-size:13px;">Drop pieces in the columns, spell your word using the T and O (horizontally, vertically, or diagonally) to win!</p>
+          </header>
+          <button class="center_button" id="switch_phrases">
+            <i class="fa fa-refresh"></i>
+            <span style="margin-left: 5px">Switch Phrases</span>
+          </button>
+          <div id="player1box" class="player_names">
+            <h3 class="center">
+              <span id="player_name"></span>
+            </h3>
+          </div>
+          <div id="player2box" class="player_names">
+            <h3 class="center">
+              <span id="opponent_name"></span>
+            </h3>
+          </div>
+          <table class="center_two_buttons">
+            <td><button class="letter_button" id="T_button">T</button></td>
+            <td><button class="letter_button" id="O_button">O</button></td>
+          </table>
+          <br>
+          <div>
+            <button class="restart_button" id="restart">
+              <i class="fa fa-refresh"></i>
+              <span style="margin-left: 5px">Restart Game</span>
+            </button>
+          </div>
+        </td>
+        <td width="70%">
+          <table class="board">  
+            <th class="header"><button id="Col1"><i class="fa fa-arrow-down"></i></button></th>
+            <th class="header"><button id="Col2"><i class="fa fa-arrow-down"></i></button></th>
+            <th class="header"><button id="Col3"><i class="fa fa-arrow-down"></i></button></th>
+            <th class="header"><button id="Col4"><i class="fa fa-arrow-down"></i></button></th>
+            <th class="header"><button id="Col5"><i class="fa fa-arrow-down"></i></button></th>
+            <th class="header"><button id="Col6"><i class="fa fa-arrow-down"></i></button></th>
+            <tr>
+              <td class="space" id="R1C1"></td>
+              <td class="space" id="R1C2"></td>
+              <td class="space" id="R1C3"></td>
+              <td class="space" id="R1C4"></td>
+              <td class="space" id="R1C5"></td>
+              <td class="space" id="R1C6"></td>
+            </tr>
+            <tr>
+              <td class="space" id="R2C1"></td>
+              <td class="space" id="R2C2"></td>
+              <td class="space" id="R2C3"></td>
+              <td class="space" id="R2C4"></td>
+              <td class="space" id="R2C5"></td>
+              <td class="space" id="R2C6"></td>
+            </tr>
+            <tr>
+              <td class="space" id="R3C1"></td>
+              <td class="space" id="R3C2"></td>
+              <td class="space" id="R3C3"></td>
+              <td class="space" id="R3C4"></td>
+              <td class="space" id="R3C5"></td>
+              <td class="space" id="R3C6"></td>
+            </tr>
+            <tr>
+              <td class="space" id="R4C1"></td>
+              <td class="space" id="R4C2"></td>
+              <td class="space" id="R4C3"></td>
+              <td class="space" id="R4C4"></td>
+              <td class="space" id="R4C5"></td>
+              <td class="space" id="R4C6"></td>
+            </tr>
+          </table>
+        </td>
+      </table>
+
+
+
+    <p style="opacity: 0" id="userDisplay"></p>
+
+    <p style="opacity: 0">Connect4 Leaderboard:</p>
+    <p style="opacity: 0" id="c4output"></p>
+
+    <p style="opacity: 0">Toot-Otto Leaderboard:</p>
+    <p style="opacity: 0" id="tootoutput"></p>
+
+    <p style="opacity: 0"><br></p>
+    <form style="color:white">
+        Username: <input style="opacity: 0" type="text" value="" id="usernameInput"><br>
+    </form>
+    <form style="color:white">
+        Password: <input style="opacity: 0" type="text" value="" id="passwordInput"><br>
+    </form>
+    <button style="opacity: 0" id="loginRequest">Submit</button>
+
+
+
+</body>
+
+</html>
