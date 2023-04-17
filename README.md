@@ -2,6 +2,8 @@
 
   <h1>Rusty Connect-4 / TOOTOTTO</h1>
 
+  <strong>[IN PROGRESS]</strong>
+  
   <strong>A simple game created by Defrim with Rust and WebAssembly.</strong>
 
   <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
